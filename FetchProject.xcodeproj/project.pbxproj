@@ -14,6 +14,7 @@
 		44C05B042C33B3A200D44247 /* FetchProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C05B032C33B3A200D44247 /* FetchProjectTests.swift */; };
 		44C05B0E2C33B3A200D44247 /* FetchProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C05B0D2C33B3A200D44247 /* FetchProjectUITests.swift */; };
 		44C05B102C33B3A200D44247 /* FetchProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C05B0F2C33B3A200D44247 /* FetchProjectUITestsLaunchTests.swift */; };
+		44C05B1D2C33B3E600D44247 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C05B1C2C33B3E600D44247 /* Meal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		44C05B092C33B3A200D44247 /* FetchProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44C05B0D2C33B3A200D44247 /* FetchProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProjectUITests.swift; sourceTree = "<group>"; };
 		44C05B0F2C33B3A200D44247 /* FetchProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		44C05B1C2C33B3E600D44247 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				44C05AF22C33B39E00D44247 /* FetchProjectApp.swift */,
 				44C05AF42C33B39E00D44247 /* ContentView.swift */,
+				44C05B1C2C33B3E600D44247 /* Meal.swift */,
 				44C05AF62C33B3A200D44247 /* Assets.xcassets */,
 				44C05AF82C33B3A200D44247 /* Preview Content */,
 			);
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44C05AF52C33B39E00D44247 /* ContentView.swift in Sources */,
+				44C05B1D2C33B3E600D44247 /* Meal.swift in Sources */,
 				44C05AF32C33B39E00D44247 /* FetchProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,11 +429,13 @@
 				DEVELOPMENT_TEAM = 2MZREBG7BM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,11 +460,13 @@
 				DEVELOPMENT_TEAM = 2MZREBG7BM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -5,20 +5,25 @@
 //  Created by Craig Swanson on 7/1/24.
 //
 
+/// View that displays a list of meal items. Tapping on the item will navigate to the meal detail view.
+
 import SwiftUI
 
 struct MealListView: View {
     
     @StateObject var mealViewModel = MealViewModel()
-    @State var desserts: [Meal]?
     
     var body: some View {
         NavigationView {
-            if let desserts {
-                List(desserts, id: \.idMeal) { dessert in
-                    NavigationLink(destination: MealDetailView(meal: dessert)) {
+            
+            // If the view has loaded but the meals array is still empty, display an alternate message.
+            if !mealViewModel.meals.isEmpty {
+                
+                // When the meals array is populated, create a list with each row consisting of an image of the meal and the meal name.
+                List(mealViewModel.meals, id: \.idMeal) { meal in
+                    NavigationLink(destination: MealDetailView(meal: meal)) {
                         HStack {
-                            AsyncImage(url: URL(string: dessert.strMealThumb ?? "")) { image in
+                            AsyncImage(url: URL(string: meal.strMealThumb ?? "")) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
@@ -27,7 +32,7 @@ struct MealListView: View {
                             }
                             .frame(width: 100, height: 100)
 
-                            Text(dessert.strMeal ?? "")
+                            Text(meal.strMeal ?? "")
                         }
                     }
                 }
@@ -39,8 +44,7 @@ struct MealListView: View {
         }
         .task {
             do {
-                let meals = try await mealViewModel.fetchDesserts()
-                desserts = meals
+                try await mealViewModel.fetchDesserts()
             } catch {
                 print("Error: \(error)")
             }

@@ -11,10 +11,11 @@ final class MealViewModel: ObservableObject {
     
     @Published var meals: [Meal] = []
     @Published var mealDetail: Meal?
+    @Published var ingredientPairs: [IngredientPair] = []
     @Published var presentError = false
     @Published var errorMessage = ""
     
-    func fetchDesserts() async throws -> [Meal] {
+    func fetchDesserts() async throws {
         let urlString = "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert"
         guard let url = URL(string: urlString) else {
             throw NetworkError.invalidURL
@@ -28,14 +29,15 @@ final class MealViewModel: ObservableObject {
         }
         do {
             let results = try JSONDecoder().decode(Results.self, from: data)
-            self.meals = results.meals
-            return results.meals
+            DispatchQueue.main.async {
+                self.meals = results.meals
+            }
         } catch {
             throw NetworkError.decodingError
         }
     }
     
-    func fetchMealDetail(_ meal: Meal) async throws -> Meal {
+    func fetchMealDetail(_ meal: Meal) async throws {
         guard let mealID = meal.idMeal else {
             throw NetworkError.mealNotAvailable
         }
@@ -58,8 +60,10 @@ final class MealViewModel: ObservableObject {
             guard let mealDetail = results.meals.first else {
                 throw NetworkError.mealNotAvailable
             }
-            self.mealDetail = mealDetail
-            return mealDetail
+            DispatchQueue.main.async {
+                self.mealDetail = mealDetail
+                self.ingredientPairs = self.mealDetail?.getIngredientsPairs() ?? []
+            }
         } catch {
             throw NetworkError.decodingError
         }

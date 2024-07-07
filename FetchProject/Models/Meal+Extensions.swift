@@ -5,6 +5,8 @@
 //  Created by Craig Swanson on 7/5/24.
 //
 
+/// Helper methods that combine the ingredients and their measurements into a single array of type IngredientPair.
+
 import Foundation
 
 extension Meal {

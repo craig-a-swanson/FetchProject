@@ -5,6 +5,8 @@
 //  Created by Craig Swanson on 7/5/24.
 //
 
+/// Object used to couple meal ingredients with their corresponding measurement amounts.
+
 import Foundation
 
 struct IngredientPair: Identifiable, Hashable {

@@ -63,8 +63,15 @@ struct MealDetailView: View {
             do {
                 try await mealViewModel.fetchMealDetail(meal)
             } catch {
+                // If an error is encountered, print a message to the console.
                 print(error)
             }
         }
+        // If an error is encountered, present a message to the user.
+        .alert("Error", isPresented: $mealViewModel.presentError, actions: {
+            Button("OK", role: .cancel) {}
+        }, message: {
+            Text(mealViewModel.errorMessage)
+        })
     }
 }

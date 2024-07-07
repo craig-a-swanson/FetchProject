@@ -5,6 +5,8 @@
 //  Created by Craig Swanson on 7/1/24.
 //
 
+/// Model for the meal JSON payload returned from the server.
+
 import Foundation
 
 struct Meal: Codable, Hashable {

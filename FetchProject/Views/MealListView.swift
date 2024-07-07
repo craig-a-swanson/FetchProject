@@ -46,9 +46,16 @@ struct MealListView: View {
             do {
                 try await mealViewModel.fetchDesserts()
             } catch {
+                // If an error is encountered, print a message to the console.
                 print("Error: \(error)")
             }
         }
+        // If an error is encountered, present a message to the user.
+        .alert("Error", isPresented: $mealViewModel.presentError, actions: {
+            Button("OK", role: .cancel) {}
+        }, message: {
+            Text(mealViewModel.errorMessage)
+        })
         .environmentObject(mealViewModel)
     }
 }
